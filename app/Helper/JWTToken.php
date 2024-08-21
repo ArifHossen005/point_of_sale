@@ -11,7 +11,7 @@ use Exception;
 class JWTToken
 {
 
-    function CreateToken(string $userEmail): string
+    public static  function CreateToken(string $userEmail): string
     {
         $key = env('JWT_KEY');
         $payload = [
@@ -24,7 +24,7 @@ class JWTToken
         return JWT::encode($payload, $key, 'HS256');
     }
 
-    function VerifyToken($token)
+    public static function VerifyToken($token)
     {
         try {
 
