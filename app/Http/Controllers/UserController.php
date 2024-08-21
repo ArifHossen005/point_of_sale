@@ -44,6 +44,7 @@ class UserController extends Controller
             return response()->json([
                 'status' => 'success',
                 'message' => 'User Login Successful',
+                'token'=>$token
             ],200);
         }
         else{
