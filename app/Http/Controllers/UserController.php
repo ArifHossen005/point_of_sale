@@ -56,4 +56,25 @@ class UserController extends Controller
         }
 
     }
+
+    function SendOTPCode(Request $request)
+    {
+        $email=$request->input('email');
+        $otp = rand(1000,9999);
+
+        $count = User::where('email','=','$email')->count();
+
+        if ($count==1)
+        {
+            //otp email address
+            //otp code table insert 
+        }
+        else
+        {
+            return response()->json([
+                'status' => 'failed',
+                'message' => 'unauthorized'
+            ],200);
+        }
+    }
 }
