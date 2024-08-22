@@ -88,7 +88,6 @@ class UserController extends Controller
         }
     }
 
-
     function VerifyOTP(Request $request)
     {
         $email = $request->input('email');
@@ -120,5 +119,27 @@ class UserController extends Controller
                 ],200);
             }
 
+    }
+
+    function PasswordReset(Request $request)
+    {
+        try {
+            $email = $request->header('email');
+            $password = $request->input('password');
+            User::where('email','=',$email)->update(['password'=>$password]);
+
+            return response()->json([
+                'status' => 'Success',
+                'message' => 'Password reset successfully '
+            ],200);
+
+        }
+        catch(Exception $e)
+        {
+            return response()->json([
+                'status' => 'Failed ',
+                'message' => ' Something went wrong '
+            ],200);
+        }
     }
 }

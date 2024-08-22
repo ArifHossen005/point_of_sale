@@ -30,7 +30,7 @@ class JWTToken
         $payload = [
             'iss' => 'laravel-token',
             'iat' => time(),
-            'exp' => time() + 60 * 5, // Token expires in 1 hour
+            'exp' => time() + 60 * 20, // Token expires in 1 hour
             'userEmail' => $userEmail
         ];
 
@@ -55,4 +55,9 @@ class JWTToken
 
 
     }
+
+
+
+
+
 }
