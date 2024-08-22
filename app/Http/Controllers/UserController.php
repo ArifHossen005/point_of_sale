@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Helper\JWTToken;
+use App\Mail\OTPMail;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -62,12 +64,20 @@ class UserController extends Controller
         $email=$request->input('email');
         $otp = rand(1000,9999);
 
-        $count = User::where('email','=','$email')->count();
+        $count = User::where('email','=',$email)->count();
 
         if ($count==1)
         {
             //otp email address
-            //otp code table insert 
+            Mail::to($email)->send(new OTPMail($otp));
+            //otp code table insert update
+            User::where('email','=',$email)->update(['otp'=>$otp]);
+
+            return response()->json([
+                'status' => 'Success',
+                'message' => '4 digit Otp code  send successfully'
+            ],200);
+
         }
         else
         {
