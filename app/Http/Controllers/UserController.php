@@ -8,10 +8,44 @@ use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\View\View;
 
 class UserController extends Controller
 {
 
+    public function LoginPage()
+    {
+        return view('pages.auth.login-page');
+       // return "jksdioi";
+    }
+
+    public function RegistrationPage()
+    {
+        return view('pages.auth.registration-page');
+    }
+
+    public function SendOtpPage()
+    {
+        return view('pages.auth.send-otp-page');
+    }
+
+    public function VerifyOTPPage()
+    {
+        return view('pages.auth.verify-otp-page');
+    }
+
+    public function ResetPasswordPage()
+    {
+        return view('pages.auth.reset-pass-page');
+    }
+
+
+
+
+
+
+
+   //ajax diye call korbo
     function UserRegistration(Request $request){
         try {
             User::create([
