@@ -162,7 +162,7 @@ class UserController extends Controller
             User::where('email','=',$email)->update(['password'=>$password]);
 
             return response()->json([
-                'status' => 'Success',
+                'status' => 'success',
                 'message' => 'Password reset successfully '
             ],200);
 
