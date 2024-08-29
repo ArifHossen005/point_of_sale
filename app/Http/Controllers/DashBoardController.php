@@ -8,7 +8,9 @@ use Illuminate\Contracts\View\View;
 class DashBoardController extends Controller
 {
 
-    function DashboardPage(): View {
+
+
+    function DashboardPage(){
         return view('pages.dashboard.dashboard-page');
     }
 
