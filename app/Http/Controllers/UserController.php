@@ -107,7 +107,7 @@ class UserController extends Controller
             User::where('email','=',$email)->update(['otp'=>$otp]);
 
             return response()->json([
-                'status' => 'Success',
+                'status' => 'success',
                 'message' => '4 digit Otp code  send successfully'
             ],200);
 
