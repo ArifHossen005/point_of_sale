@@ -139,9 +139,9 @@ class UserController extends Controller
             $token=JWTToken::CreateTokenForSetPassword($request->input('email'));
             return response()->json([
                 'status' => 'success',
-                'message' => 'Otp verification Successful',
-                'token'=>$token
-            ],200);
+                'message' => 'Otp verification Successful'
+
+            ],200)->cookie( 'token',$token,60*24*30);
         }
 
         else
