@@ -41,6 +41,13 @@ class UserController extends Controller
 
 
 
+    public function ProfilePage()
+    {
+        return view('pages.dashboard.profile-page');
+    }
+
+
+
 
 
 

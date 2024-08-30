@@ -12,13 +12,13 @@ use Exception;
 class JWTToken
 {
 
-    public static  function CreateToken(string $userEmail,$userID): string
+    public static function CreateToken(string $userEmail, int $userID): string
     {
         $key = env('JWT_KEY');
         $payload = [
             'iss' => 'laravel-token',
             'iat' => time(),
-            'exp' => time() + 60 * 60, // Token expires in 1 hour
+            'exp' => time() + 60 * 20, // Token expires in 20 minutes
             'userEmail' => $userEmail,
             'userID' => $userID
         ];
