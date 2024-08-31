@@ -41,7 +41,7 @@
 </div>
 
 <script>
-    //getProfile();
+    getProfile();
     async function getProfile(){
         showLoader();
         let res=await axios.get("/user-profile")
